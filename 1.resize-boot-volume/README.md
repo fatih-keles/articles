@@ -12,8 +12,8 @@ I used to work with on premises systems most of the time in the past and to be h
 
 2. I attached boot volume as an iSCSI Block Volume to another VM. At this point Oracle Cloud warns us to execute OS level iSCSI commands in order to extend the capacity and be able to use it.
 
-![images](/resources/attach-block-volume.png)
-![images](/resources/attach-block-volume-warning.png)
+![alt text](./resources/attach-block-volume.png "Attaching a block volume")
+![alt text](./resources/attach-block-volume-warning.png "OCI reminder for running OS level commands")
 
 3. I found the necessary iSCSI commands in 3 dots menu, the commands are ready to run, configured according to my storage instance.
 
