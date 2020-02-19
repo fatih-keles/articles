@@ -17,11 +17,11 @@ I used to work with on premises systems most of the time in the past and to be h
 
 3. I found the necessary iSCSI commands in 3 dots menu, the commands are ready to run, configured according to my storage instance.
 
-![images](/resources/iscsi-commands.png)
+![alt text](./resources/iscsi-commands.png "iSCSI Commands")
 
 4. I ssh'ed to guest OS and executed the commands below to register the new volume, configure it to survive after a reboot (I guess it was not necessary in this case), and login to storage.
 
-*I have changed the real IP address of storage with {IP Address} in the following scripts.*
+**I have changed the real IP address of storage with {IP Address} in the following scripts.**
 
 ```console
 (base) [root@fkeles-scrapyd-server ~]# sudo iscsiadm -m node -o new -T iqn.2015-02.oracle.boot:uefi -p {IP Address}:3260
@@ -110,7 +110,6 @@ sda      8:0    0 46.6G  0 disk
 ├─sda3   8:3    0 38.4G  0 part /
 └─sda1   8:1    0  200M  0 part /boot/efi
 ```
-
 I could see that capacity is doubled in *lsblk* command output. Now I had to handle the file system.
 
 ```console
@@ -173,7 +172,6 @@ tmpfs           1.5G     0  1.5G   0% /run/user/1000
 
 /dev/sdb3        39G  9.7G   29G  26% /mnt/tmp_bv
 ```
-
 New volume mounted to /mnt/tpm_bv and is displaying as *29G*.
 
 ```console
@@ -215,7 +213,6 @@ Logout of [sid: 2, target: iqn.2015-02.oracle.boot:uefi, portal: {IP Address},32
 
 (base) [root@fkeles-scrapyd-server ~]# sudo iscsiadm -m node -o delete -T iqn.2015-02.oracle.boot:uefi -p {IP Address}:3260
 ```
-
 I unmounted the volume, logged out from the storage in order to safely detach it from host server.
 
 6. And finally I detached the volume from host server and attached it back to my virtual machine. Pretty easy, with a few mouse clicks and executing some commands I was able to extend my root partition of my Linux server. Impressive.
