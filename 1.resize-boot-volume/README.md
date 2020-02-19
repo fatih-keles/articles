@@ -1,4 +1,4 @@
-![images](/resources/Transformation_1.png)
+![alt text](./resources/Transformation_1.png "Getting easier")
 
 # Is it getting easier? I resized my boot volume in 15 minutes!
 
